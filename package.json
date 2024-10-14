@@ -1,0 +1,10 @@
+{
+  "name": "full-stack-scratch",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start:client": "pnpm -F @fss/client start",
+    "start:server": "pnpm -F @fss/server start"
+  },
+  "license": "MIT"
+}
