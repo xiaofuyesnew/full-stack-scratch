@@ -1,10 +1,25 @@
 {
   "name": "full-stack-scratch",
-  "private": true,
   "type": "module",
+  "private": true,
+  "license": "MIT",
   "scripts": {
+    "postinstall": "simple-git-hooks",
     "start:client": "pnpm -F @fss/client start",
-    "start:server": "pnpm -F @fss/server start"
+    "start:server": "pnpm -F @fss/server start",
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
-  "license": "MIT"
+  "devDependencies": {
+    "@antfu/eslint-config": "^3.7.3",
+    "eslint": "^9.12.0",
+    "lint-staged": "^15.2.10",
+    "simple-git-hooks": "^2.11.1"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
 }
