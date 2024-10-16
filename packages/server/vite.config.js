@@ -15,4 +15,14 @@ export default defineConfig({
     port: 3000,
     hmr: true,
   },
+  build: {
+    target: 'esnext',
+    minify: true,
+    rollupOptions: {
+      output: {
+        format: 'es',
+        entryFileNames: 'app.js',
+      },
+    },
+  },
 })
