@@ -2,13 +2,13 @@ import antfu from '@antfu/eslint-config'
 
 export default antfu(
   {
-    rules: {
-      'no-console': 'warn',
-    },
+    ignores: ['packages/client/**/*'],
+
   },
   {
-    files: ['./packages/client/**'],
-    vue: true,
-    unocss: true,
+    files: ['packages/server/**/*.js'],
+    rules: {
+      'no-console': 'off',
+    },
   },
 )

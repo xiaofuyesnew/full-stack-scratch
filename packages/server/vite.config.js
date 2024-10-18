@@ -9,6 +9,7 @@ export default defineConfig({
       exportName: 'viteNodeApp',
       initAppOnBoot: false,
       tsCompiler: 'esbuild',
+      outputFormat: 'es',
     }),
   ],
   server: {
@@ -20,7 +21,6 @@ export default defineConfig({
     minify: true,
     rollupOptions: {
       output: {
-        format: 'es',
         entryFileNames: 'app.js',
       },
     },

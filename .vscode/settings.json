@@ -83,5 +83,14 @@
     "scss",
     "pcss",
     "postcss"
+  ],
+  "eslint.workingDirectories": [
+    {
+      "directory": "./packages/client",
+      "changeProcessCwd": true
+    }
+  ],
+  "i18n-ally.localesPaths": [
+    "packages/client/src/locales"
   ]
 }
