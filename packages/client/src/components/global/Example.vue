@@ -2,8 +2,5 @@
 </script>
 
 <template>
-  <router-view />
+  <div>This is a Global Component Example</div>
 </template>
-
-<style scoped>
-</style>
