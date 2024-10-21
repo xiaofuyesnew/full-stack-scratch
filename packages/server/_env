@@ -1,0 +1,3 @@
+DATABASE_URL="mysql://johndoe:randompassword@localhost:3306/mydb?schema=public"
+VITE_SECRET="JWT_SECRET"
+VITE_PORT=3000
