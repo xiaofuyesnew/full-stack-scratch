@@ -1,26 +1,12 @@
 import antfu from '@antfu/eslint-config'
-import { FlatCompat } from '@eslint/eslintrc'
-
-const compat = new FlatCompat()
 
 export default antfu(
   {
-    vue: true,
-  },
-  ...compat.config({
-    extends: [
-      './packages/client/.eslintrc-auto-import.json',
-    ],
-  }),
-  {
-    files: ['./packages/client/**'],
-    unocss: true,
-    rules: {
-      'no-console': 'warn',
-    },
+    ignores: ['packages/client/**/*'],
+
   },
   {
-    files: ['./packages/server/**'],
+    files: ['packages/server/**/*.js'],
     rules: {
       'no-console': 'off',
     },
