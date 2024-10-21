@@ -1,5 +1,8 @@
+import { resolve } from 'node:path'
+import { cwd } from 'node:process'
 import { defineConfig } from 'vite'
 import { VitePluginNode } from 'vite-plugin-node'
+import settings from './src/settings'
 
 export default defineConfig({
   plugins: [
@@ -12,8 +15,14 @@ export default defineConfig({
       outputFormat: 'es',
     }),
   ],
+  resolve: {
+    alias: {
+      '@': resolve(cwd(), 'src'),
+      '~': resolve(cwd()),
+    },
+  },
   server: {
-    port: 3000,
+    port: settings.port,
     hmr: true,
   },
   build: {

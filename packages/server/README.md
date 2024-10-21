@@ -1,4 +1,10 @@
-## @fss/server
+# @fss/server
+
+## Quick Start
+
+```bash
+pnpm install
+```
 
 ## issues
 
