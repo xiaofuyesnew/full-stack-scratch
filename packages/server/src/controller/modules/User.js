@@ -1,21 +1,39 @@
+import { verifyJWT } from '@/utils'
 import { prisma } from '~/prisma/client'
 
 export async function getUserInfo(ctx, next) {
+  // console.log(ctx.headers.authorization)
+  const [,token] = ctx.headers.authorization.split(' ')
+
+  const { id } = verifyJWT(token)
+
+  // console.log(id)
+
+  const user = await prisma.user.findUnique({
+    where: {
+      id,
+    },
+    select: {
+      id: true,
+      username: true,
+      email: true,
+      phone: true,
+    },
+  })
+
   ctx.status = 200
-  ctx.body = 'test ok!'
+  ctx.body = {
+    code: 200,
+    data: user,
+    message: 'ok',
+  }
 
-  await next()
-}
-
-export async function getUserProfile(ctx, next) {
-  const user = await prisma.user.findMany()
-
-  ctx.status = 200
-  ctx.body = user
   await next()
 }
 
 export default {
-  'get /user/info': getUserInfo,
-  'get /user/profile': getUserProfile,
+  'get /user/info': {
+    handler: getUserInfo,
+    whiteList: false,
+  },
 }

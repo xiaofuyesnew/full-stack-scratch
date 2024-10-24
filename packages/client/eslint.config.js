@@ -1,6 +1,5 @@
 import antfu from '@antfu/eslint-config'
 import { FlatCompat } from '@eslint/eslintrc'
-// import UnoCSS from '@unocss/eslint-config/flat'
 
 const compat = new FlatCompat()
 

@@ -56,6 +56,11 @@ export function generatePlugins({ mode, env }) {
           ],
         },
         {
+          axios: [
+            ['default', 'axios'],
+          ],
+        },
+        {
           'vue-i18n': [
             'createI18n',
             'useI18n',

@@ -10,12 +10,16 @@ const controllers = Object.keys(modules)
     return acc
   }, {})
 
-export default function setupRoutes(app) {
+export const whiteList = Object.keys(controllers)
+  .filter(key => controllers[key].whiteList)
+  .map(key => `/api${key.split(' ')[1]}`)
+
+export default function setupRouters(app) {
   const router = new Router()
 
   Object.keys(controllers).forEach((key) => {
     const [method, url] = key.split(' ')
-    router[method.toLowerCase()](`/api${url}`, controllers[key])
+    router[method.toLowerCase()](`/api${url}`, controllers[key].handler)
     log(`↑ ${method.toUpperCase()} /api${url}`)
   })
 

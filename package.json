@@ -18,6 +18,7 @@
     "lint:fix": "eslint --fix && pnpm client:lint:fix"
   },
   "dependencies": {
+    "axios": "^1.7.7",
     "dayjs": "^1.11.13",
     "vue-i18n": "^10.0.4"
   },

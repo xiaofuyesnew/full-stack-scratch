@@ -16,5 +16,5 @@ export function signJWT(payload) {
 }
 
 export function verifyJWT(token) {
-  return verify(token, import.meta.env.VITE_SECRET || 'JWT_SECRET')
+  return verify(token, import.meta?.env?.VITE_SECRET || 'JWT_SECRET')
 }
