@@ -3,7 +3,10 @@ import vue from '@vitejs/plugin-vue'
 import UnoCSS from 'unocss/vite'
 import AutoImport from 'unplugin-auto-import/vite'
 import Imagemin from 'unplugin-imagemin/vite'
-// import { ElementPlusResolver, VantResolver } from 'unplugin-vue-components/resolvers'
+import {
+  ElementPlusResolver,
+  // VantResolver
+} from 'unplugin-vue-components/resolvers'
 import Components from 'unplugin-vue-components/vite'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import mkcert from 'vite-plugin-mkcert'
@@ -20,10 +23,10 @@ export function generatePlugins({ mode, env }) {
   } = env
 
   return [
+    mode === 'development' && vueDevTools(),
     vue(),
     UnoCSS(),
     VITE_HTTPS && mkcert(),
-    mode === 'development' && vueDevTools(),
     createHtmlPlugin({
       minify: mode === 'production',
       inject: {
@@ -68,7 +71,7 @@ export function generatePlugins({ mode, env }) {
         },
       ],
       resolvers: [
-        // ElementPlusResolver(),
+        ElementPlusResolver(),
         // VantResolver(),
       ],
       eslintrc: {
@@ -82,10 +85,10 @@ export function generatePlugins({ mode, env }) {
       globs: [
         './src/components/global/*.vue',
         './src/components/global/**/index.vue',
-        './src/layouts/Layout.vue',
+        './src/layout/index.vue',
       ],
       resolvers: [
-        // ElementPlusResolver(),
+        ElementPlusResolver(),
         // VantResolver(),
       ],
     }),

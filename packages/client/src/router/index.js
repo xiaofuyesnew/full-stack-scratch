@@ -11,8 +11,16 @@ const ROUTER_MODE = import.meta.env.VITE_ROUTER_MODE || 'HISTORY'
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: () => import('@/views/Home.vue'),
+    name: 'Layout',
+    redirect: '/dashboard',
+    component: () => import('@/layout/index.vue'),
+    children: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard',
+        component: () => import('@/views/Dashboard.vue'),
+      },
+    ],
   },
   {
     path: '/login',

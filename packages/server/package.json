@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "dotenv-cli": "^7.4.2",
+    "pm2": "^5.4.2",
     "prisma": "^5.21.1",
     "vite-plugin-node": "^4.0.0"
   }

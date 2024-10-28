@@ -2,5 +2,7 @@
 </script>
 
 <template>
-  <div>layouts</div>
+  <main>
+    <slot />
+  </main>
 </template>
